@@ -14,3 +14,49 @@ sep_age_diet_data <- read_csv("data/dietary_risk_exposure_sep_ages_2017.csv")
 guidelines <- read_csv("data/guidelines.csv")
 ```
 
+```{r}
+diet_data_with_food <- diet_data |> 
+  mutate(food = str_remove(rei_name, "Diet high in |Diet low in "))
+
+diet_data_guidelines <- diet_data_with_food |> 
+  left_join(guidelines, by = "food", suffix = c("_diet_data", "_guidelines"))
+
+diet_data_with_food |> 
+    anti_join(guidelines, by = "food")
+
+guidelines |> 
+    anti_join(diet_data_with_food, by = "food")
+```
+
+```{r}
+diet_data_guidelines <- diet_data_with_food |> 
+  left_join(guidelines, by = "food", suffix = c("_diet_data", "_guidelines"))
+```
+
+```{r}
+diet_data_with_food <- diet_data |> 
+  mutate(rei_food = str_remove(rei_name, "Diet high in |Diet low in "))
+
+diet_data_guidelines <- diet_data_with_food |> 
+  left_join(
+    guidelines, 
+    by = join_by(rei_food == food), 
+    suffix = c("_diet_data", "_guidelines")
+  )
+```
+
+
+```{r}
+#| eval: false
+# two data sets:
+left
+right
+
+# this
+left |> 
+  filter(id %in% unique(right$id))
+# is the same as this
+semi_join(left, right, by = "id")
+```
+
+
