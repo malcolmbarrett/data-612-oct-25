@@ -1,0 +1,16 @@
+direction,food,lower,optimal,upper,unit
+low,fruits,200,250,300,g
+low,vegetables,290,360,430,g
+low,legumes,50,60,70,g
+low,whole grains,100,125,150,g
+low,nuts and seeds,16,21,25,g
+low,milk,350,435,520,g
+high,red meat,18,23,27,g
+high,processed meat,0,2,4,g
+high,sugar-sweetened beverages,0,3,5,g
+low,fiber,19,24,28,g
+low,calcium,1,1.25,1.5,g
+low,seafood omega-3 fatty acids,200,250,300,mg
+low,polyunsaturated fatty acids,9,11,13,%
+high,trans fatty acids,0,0.5,1,%
+high,sodium,1,3,5,g

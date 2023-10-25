@@ -1,0 +1,16 @@
+---
+title: "Joins"
+format: html
+---
+
+## Joins in R
+
+```{r}
+library(tidyverse)
+diet_data <- read_csv("data/dietary_risk_exposure_all_ages_2017.csv")
+
+sep_age_diet_data <- read_csv("data/dietary_risk_exposure_sep_ages_2017.csv")
+
+guidelines <- read_csv("data/guidelines.csv")
+```
+
